@@ -34,5 +34,6 @@
   - [MergeSameEventRows()](./APIs/MergeSameEventRows.md)
 
 - Contributions
-  - [Author @Dehui Yu](./author.md)
-  - [Supervisor @Prof. Daniel Amyot](./supervisor.md)
+  - [Contributor @Dehui Yu](./author.md)
+  - [Contributor @Prof. Daniel Amyot](./supervisor.md)
+  - [Contributor @Najah Mary El-Gharib](./najah.md)
