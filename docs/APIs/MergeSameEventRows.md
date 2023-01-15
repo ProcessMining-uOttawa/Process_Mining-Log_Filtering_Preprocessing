@@ -16,13 +16,11 @@ The aggregation operations that can be applied on the different columns are:
 
 ## Usage
 ``
-MergeSameEventRows (DataFrame dataset, String idName, String eventName, Object conditions)
+MergeSameEventRows (DataFrame dataset, Object conditions)
 ``
 
 ## Arguments
 - `dataName` is the name of pandas dataframe we want to manipulate.
-- `idName` is the name of id we need to sort by and group by.
-- `eventName` is one the name of event we need to utilize in this function
 - `conditions` is an object{key:value}. and it includes the merge rules.
 
 ## Return
@@ -30,7 +28,7 @@ Return a dataframe without duplicated rows.
 
 ## Example
 ```
-data=MergeSameRows (data, “Case.ID”,” event”,{“City”: ”first”, “Time_duration”: “sum”, “Device: ”last”})
+data=MergeSameRows (data, {“City”: ”first”, “Time_duration”: “sum”, “Device: ”last”})
 ```
 
 Table 1 Original Dataframe

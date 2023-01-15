@@ -5,12 +5,11 @@ This function removes the traces that do not record for a duration time.
 
 ## Usage
 ``
-deleteTracesWithTimeLessSort (DataFrame dataset, String idName, Int time)
+deleteTracesWithTimeLessSort (DataFrame dataset, Int time)
 ``
 
 ## Arguments
 - `dataName` is the name of pandas dataframe we want to save.
-- `idName` is one of column names we want to sort by and group by.
 - `time` is the threshold of time duration between start event and end event, in seconds.
 
 ## Return
@@ -18,7 +17,7 @@ Return a dataframe containing only traces have a total duration greater than or 
 
 ## Example
 ```
-data= deleteTracesWithTimeLessSort(dataset,”case_id”,300)
+data= deleteTracesWithTimeLessSort(dataset,300)
 ```
 
 In this example, this function will drop all traces that were running with total duration less than 300 seconds.

@@ -1,22 +1,20 @@
-# Created isRepeated Column
+# Creates isRepeated Column
 
-This function created a new column called isRepeated for dataframe. It indicates whether the repeated or not. Please be noticed this function will automatically sort the rows by id and time.
->Please be noticed this function should run after ArrangeRows() function.For speed and efficiency, you can use this function to avoid duplicate sorts.
+This function creates a new column called isRepeated. It indicates whether the event is repeated or not. Please note this function will automatically sort the rows by case_id and timestamp.
+> Note: this function should run after ArrangeRows() function. For speed and efficiency, you can use this function to avoid duplicate sorts.
 
 ## Usage
 ``
-eventIsRepeated (DataFrame dataset, String idName, String eventName)
+eventIsRepeated (DataFrame dataset)
 ``
 
 ## Arguments
-- `dataName` is the name of pandas dataframe we want to manipulate.
-- `idName` is one of column names we want to sort by and group by.
-- `eventName` is one of column names.
+- `dataset` is the name of pandas dataframe we want to manipulate.
 
 ## Return
 Return a dataframe containing a new column called isRepeated.
 
 ## Example
 ```
-data= eventIsRepeated (dataset, “case_id”,” event”]).
+data= eventIsRepeated (dataset)
 ```

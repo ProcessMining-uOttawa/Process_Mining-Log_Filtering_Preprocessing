@@ -4,12 +4,11 @@ The deleteTraceLengthLessThanfunctions removes traces where number of events is 
 
 ## Usage
 ``
-deleteTraceLengthLessThan (DataFrame dataName, String idName, Int frequency)
+deleteTraceLengthLessThan (DataFrame dataName, Int frequency)
 ``
 
 ## Arguments
 - `dataName` is the name of pandas dataframe we want to manipulate.
-- `idName` is the name of the event we want to group by.
 - `frequency` is the threshold value that is used to filter out rows whose count is less than threshold.
 
 ## Return
@@ -18,7 +17,7 @@ Return a dataframe containing only traces whose frequency is larger than thresho
 ## Example
 
 ```
-data=deleteTraceLengthLessThan(dataset,company_id,20)
+data=deleteTraceLengthLessThan(dataset,20)
 ```
 
 

@@ -1,29 +1,31 @@
-# Read a CSV file
+# Read a Pandas Dataframe
 
-The readCSV functions reads the CSV file into a Pandas DataFrame. And for subsequent use of the time filtering functions, we need to introduce the new_time column name in advance and transform it. This function reads the csv file, standardizes the columns for case id, timestamp and event, and creates a new Column called ‘new _time’. For consistency, all column names are transformed to lowercase and special characters are removed.
+The readPanda functions reads an existing Pandas DataFrame and prepares it for subsequent event log filtering and preprocessing. Sometimes rather than directly importing a CSV or Excel file, you may first elect to use pandas to transform data before using this API.
+
+This function reads the pandas dataframe, standardizes the columns for case id, timestamp and event, and creates a new Column called ‘new _time’ for subsequent use of time filtering functions. For consistency, all column names are transformed to lowercase and special characters are removed.
 
 >Note: all other supporting functions require you start by invoking [readCSV()](./APIs/readCSV.md), [readExcel()](./APIs/readExcel.md) or [readPanda()](./APIs/readPanda.md). This is so that the column names for case_id, event and timestamp are kept consistent throughout.
 
 ## Usage
 ``
-readCSV (String fileName, String case_id_col_name,String event_col_name,String timestamp_col_name,String format)
+readPanda (Dataframe dataset, String case_id_col_name,String event_col_name,String timestamp_col_name,String format)
 ``
 
 ## Arguments
-- `filename` is the name of the CSV file we want to import.
-- `case_id_col_name` is the name of the time column in the source CSV file.
-- `event_col_name` is the name of the event column in the source CSV file.
-- `timestamp_col_name` is the name of the timestamp column in the source CSV file.
-- `format` is the timestamp format used in the source CSV file. If left blank, the default value is %d/%m/%Y %H:%M.
+- `dataset` is the pandas dataframe you wish to import as an event log.
+- `case_id_col_name` is the name of the time column in the panda dataframe.
+- `event_col_name` is the name of the event column in the panda dataframe.
+- `timestamp_col_name` is the name of the timestamp column in the panda dataframe.
+- `format` is the timestamp format used in the panda dataframe file. If left blank, the default value is %d/%m/%Y %H:%M.
 
 ## Return
-Returns a Pandas DataFrame. The case id, event and timestamp column names from the source file will be renamed and standardized to the following column names (respectively): case_id,event,timestamp
+Returns a Pandas DataFrame. The case id, event and timestamp column names from the source dataframe will be renamed and standardized to the following column names (respectively): case_id,event,timestamp
 
 ## Example
 ```
-data=pm.readCSV('eventlog.csv','Case.ID','eventaction','Datetime',"%Y-%m-%d %H:%M:%S")
+data=pm.readPanda(pd,'Case.ID','eventaction','Datetime',"%Y-%m-%d %H:%M:%S")
 ```
-This will read the CSV file under the current path to the Pandas dataframe which has been created called data. Table1 (below) is an example of a source dataset file. Table2 gives an example of the output from the readExcel function.
+This will read the Pandas dataframe. Table1 (below) is an example of a source dataset. Table2 gives an example of the output from the readPanda function.
 
 Table 1: An example of source dataset
 
