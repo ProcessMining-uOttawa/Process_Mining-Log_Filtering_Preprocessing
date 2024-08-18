@@ -23,4 +23,4 @@ Table 1: Overview of Python based APIs
 - Integrating this to a popular open-source Process Mining tool written in Python (PM4PY)
 
 ## Online documentation
-<a href="https://jtrottier.github.io/Process_Mining-Log_Filtering_API/#/">Documentation for Python log filtering APIs</a>
+<a href="https://processmining-uottawa.github.io/Process_Mining-Log_Filtering_Preprocessing/#/">Documentation for Python log filtering APIs</a>
