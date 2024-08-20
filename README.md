@@ -1,6 +1,6 @@
-# Process Mining - Log Filtering and Preprocessing Library
+# logprep4pm: Log Filtering and Preprocessing Library for Process Mining
 
-A Python-based library that enables people to create useful and simple scripts to automate event log filtering, preprocesing and generation. This library is a Python port of the CPA-PM library written in R by El-Gharib [(@NajaElgharib)](https://github.com/NajaElgharib) & Amyot [(@damyot)](https://github.com/damyot). For more information on the origins of this library, refer to [this article](https://www.mdpi.com/1999-4893/15/6/180).
+A Python-based library that enables people to create useful and simple scripts to automate event log cleaning, filtering, preprocesing and generation. This library is a Python port of the CPA-PM library written in R by El-Gharib [(@NajaElgharib)](https://github.com/NajaElgharib) & Amyot [(@damyot)](https://github.com/damyot). For more information on the origins of this library, refer to [this article](https://www.mdpi.com/1999-4893/15/6/180).
 
 ## Introduction
 Processes are running everywhere, and their number is rapidly increasing. The definition of a process is a series of progressive and interdependent steps by which an objective is attained. Many organizations (such as schools, companies, government agencies, universities, etc.) now use information technology systems to support Business Processes. We call a list of events recorded during the operation of information systems an event log. To better analyze these event logs, we will use the technology called Process Mining (PM).  
