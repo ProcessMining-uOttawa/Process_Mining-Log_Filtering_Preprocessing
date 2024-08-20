@@ -120,7 +120,7 @@ def removeEventsLowFrequency(dataset,freq,exceptions=None):
     
     if type(exceptions) is str:
         dataset_e = dataset[dataset['event'] == exceptions]
-        if dataset_e['event'].value_counts()[0] > freq:
+        if len(dataset_e) > 0 and dataset_e['event'].value_counts()[0] > freq:
             warnings.warn("Warning: Your exception event(s) occurs more often than your cut off. This will lead to duplicate occurences of your exceptions in the event log.")
 
         dataset_f = dataset[dataset.groupby('event')['event'].transform('count').gt(freq)]
