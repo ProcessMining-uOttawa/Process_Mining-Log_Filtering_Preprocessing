@@ -212,10 +212,9 @@ def eventIsRepeated(dataset):
     res = pd.DataFrame([])
     grouped = dataset.groupby('case_id')
     for name, group in grouped:
-        group['match1'] = group.event.eq(group.event.shift()) 
-        group['match2'] = group.event.eq(group.event.shift(-1)) 
-        group["isRepeated"] = group.apply(lambda x: x['match1'] or x['match2'], axis = 1)
-        group = group.drop(["match1", "match2"], axis = 1)
+        match1 = group.event.eq(group.event.shift()) 
+        match2 = group.event.eq(group.event.shift(-1)) 
+        group["isRepeated"] = match1 | match2
         res = pd.concat([res, group])
     return res
 
@@ -339,14 +338,14 @@ def deleteDuplicateEventRowsDelta(dataset,delta=120,event_name=None):
     grouped = dataset.groupby('case_id')
     res = pd.DataFrame([])
     for case_id, group in grouped:
-        group['match1'] = group.event.eq(group.event.shift()) 
-        group['match2'] = group.event.eq(group.event.shift(-1)) 
-        group['isRepeated'] = group.apply(lambda x: x['match1'] or x['match2'], axis = 1)
-        group['delta'] = group['new_time'].diff()
+        match1 = group.event.eq(group.event.shift()) 
+        match2 = group.event.eq(group.event.shift(-1)) 
+        isRepeated = match1 | match2
+        group_delta = group['new_time'].diff()
         if event_name is None:
-            group = group.drop(group[(group.isRepeated == True) & (group.match1 == True) & (group.delta < delta)].index)
+            group = group.drop(group[isRepeated & match1 & (group_delta < delta)].index)
         else:
-            group = group.drop(group[(group.isRepeated == True) & (group.match1 == True) & (group.delta < delta) & (group.event == event_name)].index)
+            group = group.drop(group[isRepeated & match1 & (group_delta < delta) & (group.event == event_name)].index)
         res = pd.concat([res, group])
     res = res.reset_index(drop=True)
     return res
